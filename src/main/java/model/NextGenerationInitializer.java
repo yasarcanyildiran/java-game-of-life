@@ -25,7 +25,7 @@ public class NextGenerationInitializer<S extends State<S>> implements MatrixInit
     }
 
     @Override
-    public S initialValueAt(Coordinate coordinate) {
+    public S get(Coordinate coordinate) {
         //TODO: à compléter
         return null;
     }

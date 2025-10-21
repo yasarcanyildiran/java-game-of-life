@@ -23,7 +23,7 @@ public class ConstantCellInitializer<T>  implements MatrixInitializer<Cell<T>> {
     }
 
     @Override
-    public Cell<T> initialValueAt(Coordinate coordinate) {
+    public Cell<T> get(Coordinate coordinate) {
         //TODO: à compléter
         return null;
     }

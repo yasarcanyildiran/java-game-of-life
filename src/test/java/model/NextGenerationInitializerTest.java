@@ -36,11 +36,11 @@ class NextGenerationInitializerTest {
 
     @Test
     void initialValueAt() {
-        assertEquals(DEAD, initializer.initialValueAt(Coordinate.of(0,1)));
-        assertEquals(ALIVE, initializer.initialValueAt(Coordinate.of(1,0)));
-        assertEquals(ALIVE, initializer.initialValueAt(Coordinate.of(1,1)));
-        assertEquals(ALIVE, initializer.initialValueAt(Coordinate.of(1,2)));
-        assertEquals(DEAD, initializer.initialValueAt(Coordinate.of(2,2)));
+        assertEquals(DEAD, initializer.get(Coordinate.of(0,1)));
+        assertEquals(ALIVE, initializer.get(Coordinate.of(1,0)));
+        assertEquals(ALIVE, initializer.get(Coordinate.of(1,1)));
+        assertEquals(ALIVE, initializer.get(Coordinate.of(1,2)));
+        assertEquals(DEAD, initializer.get(Coordinate.of(2,2)));
     }
 
     @Test

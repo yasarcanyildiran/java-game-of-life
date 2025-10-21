@@ -9,7 +9,7 @@ public class ConstantMatrixInitializer<T> implements MatrixInitializer<T> {
   }
 
     @Override
-    public T initialValueAt(Coordinate coordinate) {
+    public T get(Coordinate coordinate) {
       // TODO
       return null;
     }

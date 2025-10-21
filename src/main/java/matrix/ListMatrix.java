@@ -38,6 +38,25 @@ public class ListMatrix<T> implements Matrix<T> {
     // TODO initialize each cell of the matrix, with a value determined by initializer
   }
 
+  public enum Color { WHITE, BLACK; }
+
+  static ListMatrix<Color> checkerboard(int width, int height) {
+    return new ListMatrix<>(
+      width,
+      height,
+      coord -> (coord.x() + coord.y()) % 2 == 0 ? Color.WHITE : Color.BLACK
+      );
+  }
+
+  static ListMatrix<Integer> add(Matrix<Integer> m1, Matrix<Integer> m2) {
+    return new ListMatrix<>(
+      m1.width(),
+      m1.height(),
+      coord -> m1.get(coord) + m2.get(coord)
+    );
+  }
+
+
   public int width() {
     // TODO
     return 0;
