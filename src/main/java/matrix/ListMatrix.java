@@ -1,5 +1,6 @@
 package matrix;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -23,10 +24,9 @@ public class ListMatrix<T> implements Matrix<T> {
    * @param initializer A matrix initializer to set values in the {@link ListMatrix}.
    */
   public ListMatrix(int width, int height, MatrixInitializer<T> initializer) {
-    // TODO
-    this.width = 0;
-    this.height = 0;
-    this.matrix = null;
+    this.width = width;
+    this.height = height;
+    this.matrix = new ArrayList<>();
     this.initializeWith(initializer); // fills the matrix using initializer
   }
 
@@ -35,7 +35,13 @@ public class ListMatrix<T> implements Matrix<T> {
   }
 
   private void initializeWith(MatrixInitializer<T> initializer) {
-    // TODO initialize each cell of the matrix, with a value determined by initializer
+    for (int y = 0; y < height; y++) {
+      List<T> row = new ArrayList<>();
+      for (int x = 0; x < width; x++) {
+        row.add(initializer.get(Coordinate.of(x, y)));
+      }
+      matrix.add(row);
+    }
   }
 
   public enum Color { WHITE, BLACK; }
@@ -58,30 +64,26 @@ public class ListMatrix<T> implements Matrix<T> {
 
 
   public int width() {
-    // TODO
-    return 0;
+    return width;
   }
 
   public int height() {
-    // TODO
-    return 0;
+    return height;
   }
 
   @Override
   public T get(int x, int y) {
-    // TODO
-    return null;
+    return matrix.get(y).get(x);
   }
 
 
   @Override
   public void set(int x, int y, T newValue) {
-    // TODO
+    matrix.get(y).set(x, newValue);
   }
 
   public Matrix<T> subMatrix(Coordinate corner, int width, int height) {
-    // TODO
-    return this;
+    return new ListMatrix<>(width, height, new SubMatrixInitializer<>(this, corner));
   }
 
 }
